@@ -1,4 +1,4 @@
-abstract class Creature {
+export abstract class Creature {
     public readonly name: string
     public readonly heatlh: number
     public readonly attackPower: number

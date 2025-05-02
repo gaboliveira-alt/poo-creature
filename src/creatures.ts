@@ -1,7 +1,7 @@
 import { Creature } from "./creature"
 
 
-class Dragon extends Creature {
+export class Dragon extends Creature {
     
     constructor(name: string, health: number, attackPower: number) {
         super(name, health, attackPower)
@@ -39,7 +39,7 @@ class Dragon extends Creature {
 }
 
 
-class DarkElf extends Creature {
+export class DarkElf extends Creature {
     
     constructor(name: string, health: number, attackPower: number) {
         super(name, health, attackPower)
@@ -74,7 +74,7 @@ class DarkElf extends Creature {
 }
 
 
-class Troll extends Creature {
+export class Troll extends Creature {
 
     constructor(name: string, health: number, attackPower: number) {
         super(name, health, attackPower)

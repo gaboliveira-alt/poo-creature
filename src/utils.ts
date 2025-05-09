@@ -10,7 +10,7 @@ export function randomChoice<T>(array: T[], count: number): T[] {
     
     do {
         const pickedElem = array[random(array.length)]
-        if (array.indexOf(pickedElem) == -1) {
+        if (choice.indexOf(pickedElem) == -1) {
             choice.push(pickedElem)
         }
     }while(choice.length < count)

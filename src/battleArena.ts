@@ -10,6 +10,7 @@ export class BattleArena {
         this.creatures.push(creature)
     }
 
+
     private aliveCreatures(): number {
         let count = 0
 

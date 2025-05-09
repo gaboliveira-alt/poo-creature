@@ -13,8 +13,7 @@ export class Dragon extends Creature {
 
 
     public move(): string {
-        const moveset: string = `${this.name} moves: ${this.name} 
-        Under the silver moonlight, Draco soars through the calm skies, his wings barely making a sound`
+        const moveset: string = `${this.name} moves: ${this.name} under the silver moonlight, Draco soars through the calm skies, his wings barely making a sound`
 
         return moveset
     }
@@ -42,7 +41,7 @@ export class DarkElf extends Creature {
 export class Troll extends Creature {
 
     private static initialHealth = 300
-    private static initialPowerattack = 55
+    private static initialPowerattack = 33
 
 
     constructor(name: string) {

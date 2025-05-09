@@ -2,9 +2,13 @@ import { Creature } from "./creature"
 
 
 export class Dragon extends Creature {
+
+    private static initialHealth = 300
+    private static initialPowerattack = 55
     
-    constructor(name: string, health: number, attackPower: number) {
-        super(name, health, attackPower)
+
+    constructor(name: string) {        
+        super(name, Dragon.initialHealth, Dragon.initialPowerattack)
     }
 
 
@@ -14,35 +18,17 @@ export class Dragon extends Creature {
 
         return moveset
     }
-
-
-    public attack(target: Creature): string {
-        const result_attack: number = target.heatlh - this.attackPower
-        const description: string = `${this.name} attacked ${target.name} from ${result_attack} damage: ${target.name} heatlh is now ${target.heatlh}`
-        return description
-
-    }
-
-
-    public defend(amount: number): void {
-        let isAlive: boolean = false
-        const result_heatlh: number = this.heatlh - amount
-
-        if (result_heatlh > 0) {
-            isAlive = true
-        }
-        else if (result_heatlh <= 0) {
-            console.log(`${this.name} has fallen in combat`)
-            isAlive = false
-        }
-    }
 }
 
 
 export class DarkElf extends Creature {
+
+    private static initialHealth = 200
+    private static initialPowerattack = 30
     
-    constructor(name: string, health: number, attackPower: number) {
-        super(name, health, attackPower)
+
+    constructor(name: string) {
+        super(name, DarkElf.initialHealth, DarkElf.initialPowerattack)
     }
 
 
@@ -50,60 +36,22 @@ export class DarkElf extends Creature {
         const moveset: string = `${this.name} moves: ${this.name} opens he palm — the shadows inside it hunge.`
         return moveset
     }
-
-    
-    public attack(target: Creature): string {
-        const result_attack: number = target.heatlh - this.attackPower
-        const description: string = `${this.name} attacked ${target.name} from ${result_attack} damage: ${target.name} heatlh is now ${target.heatlh}`
-        return description
-    }
-
-
-    public defend(amount: number): void {
-        let isAlive: boolean = false
-        const result_heatlh: number = this.heatlh - amount
-
-        if (result_heatlh > 0) {
-            isAlive = true
-        }
-        else if (result_heatlh <= 0) {
-            console.log(`${this.name} has fallen in combat`)
-            isAlive = false
-        }
-    }
 }
 
 
 export class Troll extends Creature {
 
-    constructor(name: string, health: number, attackPower: number) {
-        super(name, health, attackPower)
+    private static initialHealth = 300
+    private static initialPowerattack = 55
+
+
+    constructor(name: string) {
+        super(name, Troll.initialHealth, Troll.initialPowerattack)
     }
 
 
     public move(): string {
         const moveset: string = `${this.name} moves: ${this.name} laughs as his fist turns your chest into a crate`
         return moveset
-    }
-
-
-    public attack(target: Creature): string {
-        const result_attack: number = target.heatlh - this.attackPower
-        const description: string = `${this.name} attacked ${target.name} from ${result_attack} damage: ${target.name} heatlh is now ${target.heatlh}`
-        return description
-    }
-
-
-    public defend(amount: number): void {
-        let isAlive: boolean = false
-        const result_heatlh: number = this.heatlh - amount
-
-        if (result_heatlh > 0) {
-            isAlive = true
-        }
-        else if (result_heatlh <= 0) {
-            console.log(`${this.name} has fallen in combat`)
-            isAlive = false
-        }
     }
 }

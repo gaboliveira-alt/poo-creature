@@ -1,9 +1,9 @@
 {
   "name": "poo_creatures",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "dev": "ts-node src/index.ts",
+    "dev": "ts-node src/main.ts",
     "build": "del /s /q build && tsc"
   },
   "author": "",

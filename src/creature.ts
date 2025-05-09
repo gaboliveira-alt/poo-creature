@@ -1,7 +1,7 @@
 export abstract class Creature {
     public readonly name: string
-    public readonly heatlh: number
-    public readonly attackPower: number
+    protected heatlh: number
+    protected attackPower: number
     
     
     constructor(name: string, heatlh: number, attackPower: number) {
@@ -11,6 +11,26 @@ export abstract class Creature {
     }
 
     public abstract move(): string
-    public abstract attack(target: Creature): string
-    public abstract defend(amount: number): void
+
+
+    public attack(target: Creature): string {
+        target.defend(this.attackPower)
+        const description: string = `${this.name} attacked ${target.name} from ${this.attackPower} damage: ${target.name} heatlh is now ${target.heatlh}`
+        return description
+    }
+
+
+    public defend(amount: number): void {
+        this.heatlh -= amount
+    }
+
+
+    public isDead(): boolean {
+        return this.heatlh <= 0
+    }
+    
+    
+    public isAlive(): boolean {
+        return this.heatlh > 0
+    }
 }

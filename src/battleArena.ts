@@ -25,40 +25,41 @@ export class BattleArena {
 
 
     public startBattle(): string[] {
-        const moves: string[] = []
+        const logBattle: string[] = []
 
-        if (this.creatures.length < 2) {
-            throw new Error("Battle must have 2 creatures or more")
-        }
-
-        for (const creature of this.creatures) {
-            const moves_creatures = creature.move()
-            moves.push(moves_creatures)
-        }
+        if (this.creatures.length < 2) throw new Error('The Battle must have 2 creatures')
         
+        
+        for (const creature of this.creatures) {
+            const moveCreatures = creature.move()
+            logBattle.push(moveCreatures)
+        }
+
+
         let chosenCreature: Creature
-        let targetCreature: Creature
+        let targetCreature:Creature
 
         do {
-            const pickedCreatures = randomChoice(this.creatures, 2)
-            chosenCreature = pickedCreatures[0]
-            targetCreature = pickedCreatures[1]
+            const pickedRandomCreature: Creature[] = randomChoice(this.creatures, 2)
+
+            chosenCreature = pickedRandomCreature[0]
+            targetCreature = pickedRandomCreature[1]
 
 
-            moves.push(chosenCreature.attack(targetCreature))
+            logBattle.push(chosenCreature.attack(targetCreature))
 
 
             if (targetCreature.isDead()) {
-                const targetDeadindex = this.creatures.indexOf(targetCreature)
-                this.creatures.splice(targetDeadindex, 1)
-                moves.push(`${targetCreature.name} has fallen.`)
+                const targetDeadCreature = this.creatures.indexOf(targetCreature)
+                this.creatures.splice(targetDeadCreature, 1)
+                logBattle.push(`${targetCreature.name} has fallen in Battle`)
             }
+        } while (this.aliveCreatures() > 1)
 
-        } while (this.aliveCreatures() > 1);
+
+        logBattle.push(`${chosenCreature.name} is the last creature alive.`)
 
 
-        moves.push(`${chosenCreature.name} is the last creature alive.`)
-
-        return moves
+        return logBattle
     }
 }
